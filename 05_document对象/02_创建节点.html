@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_创建节点.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <ul id="city">
+    	<li id="bj" name="beijing">北京</li>
+		<li id="sh" name="shanghai">上海</li>
+		<li id="cq" name="chongqing">重庆</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+  					//需求: 创建<li id="tj" name="tianjin">天津</li>，添加到id="city"标签下
+					
+					//1 创建<li id="tj" name="tianjin">天津</li>
+						//1 创建元素节点<li></li>
+						var liElement = document.createElement("li");
+						
+						//2 创建文本节点"天津"
+						var text = document.createTextNode("天津");
+						
+						//3 将文本节点当作子节点，添加到li标签下
+						liElement.appendChild(text);
+						
+						//4 不能创建属性节点. 使用Element对象设置属性
+						liElement.setAttribute("id","tj");
+						liElement.setAttribute("name","tianjin");
+						
+//						document.createAttribute() // 该方法通常不用,而是使用设置属性的方式
+					
+					//2 获取id="city"标签
+					var cityElement = document.getElementById("city");
+					
+					//3 添加：appendChild()方法，添加到最后面
+					cityElement.appendChild(liElement);
+				
+  </script>
+</html>

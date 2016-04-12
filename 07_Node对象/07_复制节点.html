@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>07_复制节点.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <button id="login">登录</button>
+	<p>
+		段落
+	</p>
+  </body>
+  <script type="text/javascript">
+  					//要求复制button按钮，追加到p标签上
+						//1 获取button按钮
+						var button = document.getElementById("login");
+						
+						//2 复制button按钮
+						//cloneNode()方法：只复制了自身节点，接收参数：Boolean值，是否复制子节点
+						var copy = button.cloneNode(true);
+						
+						//3 获取p标签
+						var pElement = document.getElementsByTagName("p")[0];
+						
+						//4 追加
+						pElement.appendChild(copy);
+					
+  </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>01_原型的作用.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+  
+  					/*
+  					 * 每个对象都有prototype(原型)属性,该属性其实也是个对象
+  					 *
+  					 */
+  
+  
+  					function Hero(){
+						this.name = "javascript";
+						this.sayMe = function(){
+							alert("javascript");
+						}
+					}
+					
+//					var hero = new Hero();
+					
+					//利用原型属性，为函数对象增加属性和方法
+					
+					//函数对象.原型.属性名 = 属性值
+					Hero.prototype.value = "HERO";
+					
+					var hero = new Hero();
+					
+					alert(hero.value);
+					
+//					Hero.prototype.sayHero = function(){
+//						alert("HERO");
+//					}
+//					
+//					hero.sayHero();
+					
+					/*
+					 * * 先new对象，再增加属性和方法：无效
+					 * * 先增加属性和方法，再new对象：有效
+					 */
+//					Hero.prototype = {
+//						value : "HERO",
+//						sayHero : function(){
+//							alert("HERO");
+//						}
+//					}
+//					
+//					var hero = new Hero();
+					
+					alert(hero.value);
+					
+  </script>
+</html>

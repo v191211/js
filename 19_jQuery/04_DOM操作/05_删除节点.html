@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>05_删除节点.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
+	</head>
+	 
+	<body>
+		 <ul id="city">
+		 	 <li id="bj" name="beijing">北京<p>海淀区</p></li>
+			 <li id="tj" name="tianjin">天津<p>河西区</p></li>
+			 <li id="cq" name="chongqing">重庆</li>
+		 </ul>
+		<p class="hello">Hello</p> how are <p>you?</p> 
+	</body>
+<script type="text/javascript">
+   //删除<li id="bj" name="beijing">北京</li>
+		$("#bj").remove();
+		
+		
+   //删除所有的子节点   清空元素中的所有后代节点(不包含属性节点).
+		$("#tj").empty();
+		
+		/*
+		 * empty()：清空后代节点，删除除了自身节点外所有节点
+		 * remove()：删除自身节点及所有后代节点
+		 */
+		
+		
+</script>
+   
+</html>
+
+
+

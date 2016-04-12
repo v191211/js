@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>05_String对象.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+//  					var str1 = "aaa";
+//					var str2 = new String("aaa");
+//					
+//					alert(typeof str1);			//output	string
+//					alert(typeof str2);			//output	object
+					
+					//判断字符串是否包含指定字符串示例
+	
+					//定义两个要判断的字符串
+					var str = "abcdefg";
+					var substr = "xyz";
+					/*
+					 * 定义判断字符串是否包含指定字符串的函数
+					 * 	* 第一个参数：要判断的字符串
+					 * 	* 第二个参数：指定的字符串
+					 */
+// 					function sub(str,substr){
+// 						//将判断的字符串定义成String对象
+// 						var string = new String(str);
+// 						//截取判断的字符串
+// 						var result = string.substr(string.indexOf(substr),substr.length);
+						
+// 						/*
+// 						 * 判断截取后的字符串是否为空
+// 						 * 	* 为空，说明不包含指定字符串
+// 						 * 	* 不为空，说明包含指定字符串
+// 						 */
+// 						if(result==substr){
+// 							return true;
+// 						}else{
+// 							return false;
+// 						}
+// 					}
+					
+// 					alert(sub(str,substr));
+
+
+					/*
+					 * 另一种方法
+					 */
+					 function sub(str,substr){
+						
+						if(str.indexOf(substr)!=-1){
+							return true;
+						}else{
+							return false;
+						}
+					}
+					
+					alert(sub(str,substr));
+					
+					
+
+					
+  </script>
+</html>

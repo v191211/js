@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>08_样式操作.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
+	<style type="text/css">
+		   .one{
+			    width: 200px;
+			    height: 140px;
+			    margin: 40px;
+			    background: red;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}
+		
+		 	div,span{
+			    width: 140px;
+			    height: 140px;
+			    margin: 20px;
+			    background: #9999CC;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}
+			
+			div.mini{
+			    width: 30px;
+			    height: 30px;
+			    background: #CC66FF;
+			    border: #000 1px solid;
+			    font-size: 12px;
+			    font-family:Roman;
+			}
+	 </style>
+	</head>
+	<body>
+		 <input type="button" value="采用属性增加样式"  id="b1"/>
+		 <input type="button" value=" addClass"  id="b2"/>
+		 <input type="button" value="removeClass"  id="b3"/>
+		 <input type="button" value=" 切换样式"  id="b4"/>
+		 <input type="button" value=" hasClass"  id="b5"/>
+		
+		 <h1>天气冷了</h1>
+		 <h2>天气又冷了</h2>
+		 
+		<br>
+		<div id="mover">
+		 	  动画
+		</div>
+		<br>
+		<span class="spanone">    span
+		</span>
+		
+	</body>
+<script type="text/javascript">
+//<input type="button" value="采用属性增加样式"  id="b1"/>
+	$("#b1").click(function(){
+		$("#mover").attr("class","one");
+	});
+	
+//<input type="button" value=" addClass"  id="b2"/>
+	$("#b2").click(function(){
+		$("#mover").addClass("mini");
+	});
+//<input type="button" value="removeClass"  id="b3"/>
+	$("#b3").click(function(){
+		/*
+		 * removeClass()：删除所有样式
+		 * removeClass(class)：删除指定样式
+		 */
+		$("#mover").removeClass();
+	});
+//<input type="button" value=" 切换样式"  id="b4"/>
+	$("#b4").click(function(){
+		//切换样式：在没有样式和指定样式之间
+		$("#mover").toggleClass("one");
+	});
+//<input type="button" value=" hasClass"  id="b5"/>
+	$("#b5").click(function(){
+		//检查当前的元素是否含有某个特定的类，如果有，则返回true。
+		//这其实就是 is("." + class)
+		
+		alert($("#mover").hasClass("one"));
+	});
+	
+</script>
+</html>
+
+
+

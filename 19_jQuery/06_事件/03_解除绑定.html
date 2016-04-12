@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>03_解除绑定.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script language="JavaScript" src="../js/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+  	   <input type="button" value="移除事件">
+	   <div id="panel">
+			<h5 class="head">什么是jQuery?</h5>
+			<div class="content">
+				jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+			</div>
+		</div>
+  </body>
+  <script language="JavaScript">
+    $(function(){
+	    function event(){
+		    var $content = $(this).next("div.content");
+		    if($content.is(":visible")){
+				$content.hide();
+			}else{
+				$content.show();
+			}
+		}
+	    // 上面定义的event()函数中,this代表 #panel h5.head 元素
+		$("#panel h5.head").bind("click",event)
+		$("input").click(function(){
+			$("#panel h5.head").unbind("click",event);
+		})
+	})
+  </script>
+</html>

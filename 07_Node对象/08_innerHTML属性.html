@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>08_innerHTML属性.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <div id="div"></div>
+  </body>
+  <script type="text/javascript">
+  				//将<h1>今天</h1>，添加到div中
+				//第一种方式
+//					//1 创建<h1>今天</h1>
+//					var h1Element = document.createElement("h1");
+//					var text = document.createTextNode("今天");
+//					h1Element.appendChild(text);
+//					
+//					//2 获取div
+//					var divElement = document.getElementById("div");
+//					
+//					//3 插入
+//					divElement.appendChild(h1Element);
+					
+				document.getElementById("div").innerHTML = "<h1>今天</h1>";	
+				
+				/*
+				 * innerHTML属性
+				 * 	* 多与div和span标签结合 (只要标签中可以插入文字的都可以,例如a标签)
+				 * 
+				 * WEB1.0与WEB2.0的区别：
+				 * 	* WEB1.0：垂直门户网站(以内容为主)
+				 * 	* WEB2.0：社交网站(以人的关系为主)
+				 * 	* WEB3.0：基于移动互联网的社交网站
+				 */
+				
+  </script>
+</html>

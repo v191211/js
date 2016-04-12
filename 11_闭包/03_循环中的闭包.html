@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_循环中的闭包.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  
+  <script type="text/javascript">
+  				/*
+  				 * * 定义函数f()
+  				 * 		* 定义一个空的数组a
+  				 * 		* 定义局部变量i
+  				 * 		* 遍历，循环3遍，变量i：0，1，2，3
+  				 * 			初始化数组a：a[0],a[1],a[2]，function(){return i;}
+  				 * 		* 返回数组a
+  				 * * 定义一个全局变量fun，将函数f()的返回值，赋值给变量fun（fun是数组）
+  				 */
+//				function f(){
+//					var a = [];
+//					var i;
+//					for(i = 0; i < 3; i++){
+//						a[i] = function(){
+//							return i;
+//						}
+//					}
+//					return a;
+//				}
+//				
+//				var fun = f();
+//				
+//				alert(fun[0]());		//output	3
+//				alert(fun[1]());		//output	3
+//				alert(fun[2]());		//output	3
+				
+//				function f(){
+//					var a = [];
+//					var i;
+//					function n(x){
+//						return x;
+//					}
+//					for(i = 0; i < 3; i++){
+//						a[i] = n(i);
+//					}
+//					return a;
+//				}
+//				
+//				var fun = f();
+//				
+//				alert(fun[0]);		//output	0
+//				alert(fun[1]);		//output	1
+//				alert(fun[2]);		//output	2
+				
+				function f(){
+					var a = [];
+					var i;
+					for(i = 0; i < 3; i++){
+						a[i] = (
+							function(x){
+								return x;
+							}
+						)(i);
+					}
+					return a;
+				}
+				
+				var fun = f();
+				
+				alert(fun[0]);		//output	0
+				alert(fun[1]);		//output	1
+				alert(fun[2]);		//output	2
+
+  </script>
+</html>

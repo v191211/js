@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_几种特殊的函数.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+//  				function add(a,b){
+//						return a+b;
+//					}
+					
+					/*
+					 * 1 匿名函数：没有名的函数
+					 * 	作用：
+					 * 		* 可以将匿名函数作为参数传递给其他函数。这样，接收方函数就能利用所传递的函数来完成某些事情。
+					 * 		* 可以定义某个匿名函数来执行某些一次性任务
+					 */
+//					function(){}
+					
+					/*
+					 * one和two函数，叫做回调函数
+					 * 回调函数：将函数作为参数传递给其他函数，作为参数的函数就是回调函数
+					 */
+					function fn(a,b){
+						return a() + b();
+					}
+					
+//					var one = function(){return 1;}
+//					var two = function(){return 2;}
+					
+//					alert(fn(one,two));			//output	3
+					
+					//以上代码可以改写：匿名回调函数
+//					alert(fn(function(){return 1;},function(){return 2;}));		//output	3
+					
+					//定义即调用函数
+//					function fn(){
+//						alert("javascript");
+//					}
+//					fn();
+					
+					/*
+					 * 自调函数：执行一次性任务
+					 * 	* 第一个小括号：封装函数体
+					 * 	* 第二个小括号：调用封装的函数
+					 */
+//					(
+//						function(){
+//							alert("javascript");
+//						}
+//					)();
+					
+//					(
+//						function(str){
+//							alert(str+" javascript");
+//						}
+//					)("hello");
+					
+					/*
+					 * 私有(内部)函数：类似于java中的内部类
+					 * 	* 保证了私有性 ———— 只把必要性的内容暴露给外界，其他所有内容保留在私有空间中
+					 * 	* 节省全局域命名空间
+					 */
+//					function fn(){
+//						var a = "javascript";
+//						
+//						function n(){
+//							return a;
+//						}
+//						
+//						return n();
+//					}
+					
+//					alert(fn());		//output	javascript
+//					alert(n());			//output	undefind
+					
+					/*
+					 * 返回函数的函数
+					 * 	* 在定义一个函数的时候，可以执行两个逻辑代码
+					 * 	* 第一个函数，没有真正的返回值(因为返回的是一个函数)
+					 */
+					function fn(){
+						var a = "javascript";
+						
+						return function(){
+							return a;
+						}
+					}
+					
+					//alert(fn());		//output	function(){return a;}
+					
+					//var fun = fn();	// 相当于: var fun = function(){return a;}
+					
+					//alert(fun());		//output	javascript
+					
+					alert(fn()());		//output	javascript
+					
+  </script>
+</html>

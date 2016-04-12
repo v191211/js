@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_在标签查找标签.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <ul id="city">
+    	<li id="bj" name="beijing">北京</li>
+		<li id="sh" name="shanghai">上海</li>
+		<li id="cq" name="chongqing">重庆</li>
+    </ul>
+	<select id="edu">
+		<option value="博士">博士</option>
+		<option value="硕士">硕士</option>
+		<option value="学士">学士</option>
+	</select>
+  </body>
+  <script type="text/javascript">
+  					//获取id="city"标签下的所有子节点
+//						//1 获取id="city"标签
+//						var cityElement = document.getElementById("city");
+//						
+//						//2 获取所有子节点
+//						var children = cityElement.childNodes;		//childNodes：返回的是子节点的集合
+//					
+//						alert(children.length);
+					
+					//获取id="edu"标签的所有子节点
+					//select标签，浏览器解析时，自动增加一个文本内容,因此该例中使用childNodes会得到长度为6,应该使用getElementsByTagName()方法
+//						//1 id="edu"标签
+//						var eduElement = document.getElementById("edu");
+//						
+//						//2 获取所有子节点
+//						var children = eduElement.childNodes;
+//						
+//						alert(children.length);
+					
+						//在标签中查找标签，唯一有效的方法：getElementsByTagName()
+						var eduElement = document.getElementById("edu");
+						
+						var options = eduElement.getElementsByTagName("option");
+						
+						alert(options.length);
+  </script>
+</html>

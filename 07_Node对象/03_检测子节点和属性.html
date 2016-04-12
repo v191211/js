@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_检测子节点和属性.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <input type="text" id="username" name="username" value="username">
+	<p>
+		明天上课
+	</p>
+  </body>
+  <script type="text/javascript">
+  					//判断input标签是否含有子节点
+					var inputElement = document.getElementById("username");
+					
+					//hasChildNodes()方法：返回值是Boolean值，false是不包含，true是包含
+					alert(inputElement.hasChildNodes());
+					
+					
+//					var pElement = document.getElementsByTagName("p")[0];
+//					
+//					alert(pElement.hasChildNodes());
+					
+					//hasAttributes()：判断是否含有属性，不支持IE浏览器
+					
+  </script>
+</html>

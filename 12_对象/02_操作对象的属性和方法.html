@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_操作对象的属性和方法.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+//  						var obj = {
+// 							name : "javascript",
+// 							sayMe : function(){
+// 								alert("javascript");
+// 							}
+// 						}
+						
+						//调用对象obj的属性和方法
+//						alert(obj.name);		//output	javascript
+//						obj.sayMe();			//output	javascript
+						
+						//删除对象obj的属性和方法
+//						delete obj.name;
+//						alert(obj.name);		//output	undefind
+						
+//						delete obj.sayMe;
+//						obj.sayMe();			//output	
+						
+						//修改对象obj的属性和方法
+//						obj.name = "jscript";
+//						alert(obj.name);		//output	jscript
+						
+//						obj.sayMe = function(){
+//							alert("jscript");
+//						}
+//						obj.sayMe();			//output	jscript
+						
+						function Hero(){
+							this.name = "HERO";
+							this.sayMe = function(){
+								alert("HERO");
+							}
+						}
+						
+						alert(Hero.name);		//output HERO
+						
+						var hero = new Hero();
+						
+						//调用函数对象Hero的属性和方法
+//						alert(hero.name);		//output	HERO
+//						hero.sayMe();			//output	HERO
+						
+						//删除函数对象Hero的属性和方法
+//						delete hero.name;
+//						alert(hero.name);		//output	undefind
+						
+//						delete hero.sayMe;
+//						hero.sayMe();			//output	undefind
+						
+						//修改函数对象Hero的属性和方法
+						hero.name = "hero";
+						alert(hero.name);		//output	hero
+						
+//						hero.sayMe = function(){
+//							alert("hero");
+//						}
+//						hero.sayMe();			//output	hero
+						
+  </script>
+</html>

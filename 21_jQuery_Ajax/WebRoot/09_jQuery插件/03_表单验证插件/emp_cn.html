@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jQuery validation plug-in - main demo</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+        <script type="text/javascript" src="./js/jquery.js"></script>
+        <script type="text/javascript" src="./js/jquery.validate.js"></script>
+        
+<script type="text/javascript">
+				/*******************************************************/
+				/*
+				 * 如何自定义验证方法
+				 * $.validator.addMethod(name,method,message)：固定写法
+				 * 	* name：添加的方法的名字
+				 * 	* method：一个函数，function(value,element,param){}
+				 * 		* value：元素的值
+				 * 		* element：元素本身
+				 * 		* param：参数
+				 *		* 返回值: Boolean
+				 * 	* message：设置错误提示信息
+				 */
+				$.validator.addMethod("cartlength",function(value,element,param){
+					var len = value.length;
+					
+					if(len!=15&&len!=18){
+						return false;
+					}
+					return true;
+					
+				});
+				
+				$.validator.addMethod("cartcheck",function(value,element,param){
+					var len = value.length;
+					
+					if(len==15){
+						var p = /^[0-9]{15}$/;
+						
+						var flag = p.test(value);
+						
+						if(!flag){
+							return false;
+						}
+						return true;
+						
+					}
+					
+					if(len==18){
+						var p = /^[0-9]{18}|[0-9]{17}x$/;
+						
+						var flag = p.test(value);
+						
+						if(!flag){
+							return false;
+						}
+						return true;
+					}
+					
+				});
+				
+				/*******************************************************/
+				$().ready(function(){
+					$("#empForm").validate({
+						debug:true,
+						rules:{
+							realname:"required",
+							gender:"required",
+							edu:"required",
+							cart:{
+								required:true,
+								cartlength:true,
+								cartcheck:true
+							}
+						},
+						messages:{
+							realname:"真实名称不能为空",
+							gender:"你没有第三种选择",   //定义了<label>标签, 该消息就无效了, 具体原因看下面 name=gender 处的注释说明
+							edu:"请选择你的学历",
+							cart:"请输入正确的身份证号码"
+						}
+					});
+				});
+
+</script>
+</head>
+<body>
+    <p>员工信息录入</p>
+<form name="empForm" id="empForm" method="post" action="test.html">
+		<table border=1>
+			<tr>
+				<td>真实姓名(不能为空 ,没有其他要求)</td>
+				<td><input type="text" id="realname" name="realname" />
+				</td>
+			</tr>
+			<tr>
+				<td>登录名(登录名不能为空,长度应该在5-8之间,可以包含中文字符(一个汉字算一个字符)):</td>
+				<td><input type="text" id="username" name="username" /></td>
+			</tr>
+			 <tr> 
+		      <td>密码(不能为空,长度6-12字符或数字,不能包含中文字符):</td>
+		      <td><input type="password" id="psw"  name="psw" style="width:120px" /></td>
+		    </tr>
+		    <tr> 
+		      <td>重复密码密码(不能为空,长度6-12字符或数字,不能包含中文字符):</td>
+		      <td><input type="password" id="psw2" name="psw2" style="width:120px" /></td>
+		    </tr>
+			<!--
+                <label  style="display: none" for="gender" class="error">请选择性别</label>
+					* for：必须是对应页面元素的name属性值
+					* class：设置样式
+					* style="display: none"：设置成隐藏
+				
+				jQuery表单验证插件的运行机制：到对应页面中，查找是否存在对应的label标签
+					* 没有label标签，插件会通过底层代码，创建一个label标签，进行错误提示信息
+					* 具有label标签，插件会使用对应页面的对应那个label标签，进行错误提示信息
+				
+				// 以下代码是 validate.js 验证插件中摘抄下来的:
+				// 错误时会设置Class为 error, 错误的元素为 label 标签, 而label标签是通过 validate.js 底层创建的
+				errorClass: "error",
+				validClass: "valid",
+				errorElement: "label",
+				
+				label = $("<" + this.settings.errorElement + "/>")				//<label></label>
+					.attr({"for":  this.idOrName(element), generated: true})	//<label for="gender"></label>
+					.addClass(this.settings.errorClass)							//<label class="error" for="gender"></label>
+					.html(message || "");										//<label class="error" for="gender">错误提示信息</label>
+			-->
+		    <tr>
+				<td>性别(必选其一)</td>
+				<td>
+				    <input  type="radio" id="gender_male" value="m" name="gender"/>男
+				    <input  type="radio" id="gender_female" value="f" name="gender"/>女
+				    <label  style="display: none" for="gender" class="error">请选择性别</label>
+				</td>
+			</tr>
+			<tr>
+				<td>年龄(必填26-50):</td>
+				<td><input type="text" id="age" name="age" /></td>
+			</tr>
+			
+		    <tr> 
+		      <td>你的学历:</td>
+		      <td> <select name="edu" id="edu">
+			          <option value="">－－请选择你的学历－－</option>
+			          <option value="a">专科</option>
+			          <option value="b">本科</option>
+			          <option value="c">研究生</option>
+			          <option value="e">硕士</option>
+			          <option value="d">博士</option>
+		          </select>
+			  </td>
+		    </tr>
+			
+			<tr> 
+              <td>出生日期(1982/09/21):</td>
+               <td><input type="text" id="birthday"  name="birthday" style="width:120px" value="" /></td>
+            </tr>
+			
+		   <tr> 
+		      <td>兴趣爱好:</td>
+		      <td colspan="2"> 
+			      <input type="checkbox" name="checkbox1" id="qq1"/>乒乓球 
+		          <input type="checkbox" name="checkbox1" id="qq2" value="1" />羽毛球 
+		          <input type="checkbox" name="checkbox1" id="qq3" value="2" />上网 
+		          <input type="checkbox" name="checkbox1" id="qq4" value="3" />旅游 
+		          <input type="checkbox" name="checkbox1" id="qq5" value="4" />购物 
+				  <label  style="display: none" for="checkbox1" class="error">您的兴趣爱好,至少选择一个</label>
+			  </td>
+		    </tr>
+			 <tr> 
+			      <td align="left">电子邮箱:</td>
+			      <td><input type="text" id="email" style="width:120px" name="email" /></td>
+			  </tr>
+			  <tr> 
+			      <td align="left">身份证(15-18):</td>
+			      <td><input type="text" id="cart"  style="width:200px" name="cart" /></td>
+			  </tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="submit"  name="firstname"  id="firstname" value="保存"></td>
+			</tr>
+		</table>
+
+</form>
+<script language="JavaScript">
+	
+</script>
+
+</body>
+</html>

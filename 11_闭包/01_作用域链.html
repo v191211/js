@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>01_作用域链.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+  					var a = "a";
+					
+					function fn(){
+						var b = "b";
+						
+						alert(a);		//output	a
+						
+						alert(b);		//output	b
+						
+						function n(){
+							var c = "c";
+							
+							alert(a);		//output	a
+							
+							alert(b);		//output	b
+							
+							alert(c);		//output	c
+						}
+						
+						return n();
+					}
+					
+					fn();
+					
+					
+					
+					
+  </script>
+</html>

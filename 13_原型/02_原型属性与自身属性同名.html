@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_原型属性与自身属性同名.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+//  						function Hero(){
+// 							this.name = "javascript";
+// 						}
+						
+// 						Hero.prototype.name = "jscript";
+						
+// 						var hero = new Hero();
+						
+// //						alert(hero.name);			//output	javascript
+						
+// 						delete hero.name;
+						
+// 						alert(hero.name);			//output	jscript
+						
+						//定义空的函数对象
+						function Hero(){}
+						
+						Hero.prototype.name = "javascript";
+						
+						var hero = new Hero();
+						
+						hero.name = "jscript";
+						
+						alert(hero.name);		//output jscript
+						
+						delete hero.name;
+						
+						alert(hero.name);		//output javascript
+						
+  </script>
+</html>

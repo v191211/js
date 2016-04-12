@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>全选,全不选,反选</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  	您的爱好很广泛!!!
+  	 <br>
+	 <input type="checkbox" name="checkItems" id="checkItems" value="全选/全不选"/>全选/全不选
+	 <br>
+        <input type="checkbox" name="items" value="足球" />足球
+		<input type="checkbox" name="items" value="篮球"/>篮球
+		<input type="checkbox" name="items" value="游泳"/>游泳
+		<input type="checkbox" name="items" value="唱歌"/>唱歌
+		<br>
+		<input type="button" name="checkall" id="checkall" value="全选" />
+		<input type="button" name="checkall" id="checkallNo" value="全不选" />
+		<input type="button" name="checkall" id="check_revsern" value="反选" />
+  </body>
+  <script language="JavaScript">
+  		/*
+		 * <input type="checkbox" name="items" value="足球" />足球
+			<input type="checkbox" name="items" value="篮球"/>篮球
+			<input type="checkbox" name="items" value="游泳"/>游泳
+			<input type="checkbox" name="items" value="唱歌"/>唱歌
+		 */
+		var itemsElements = document.getElementsByName("items");
+		
+		//<input type="button" name="checkall" id="checkall" value="全选" />
+		document.getElementById("checkall").onclick = checkall;
+		
+		function checkall(){
+			for(var i=0;i<itemsElements.length;i++){
+				var itemsElement = itemsElements[i];
+				itemsElement.checked = "checked";
+			}
+			
+		}
+		
+		//<input type="button" name="checkall" id="checkallNo" value="全不选" />
+		document.getElementById("checkallNo").onclick = checkallNo;
+		
+		function checkallNo(){
+			for(var i=0;i<itemsElements.length;i++){
+				var itemsElement = itemsElements[i];
+				// removeAttribute()和setAttribute()方法,一个不支持IE,一个不支持火狐
+				
+				//itemsElement.removeAttribute("checked");
+				
+				//itemsElement.setAttribute("checked",null);
+				
+				itemsElement.checked = null;
+				
+				/*
+				 * 编写javascript代码时：
+				 * 	* 不仅要语法正确，而且效果也正确
+				 * 	* 只看语法的正确性，最终要看效果对不对
+				 */
+			}
+		}
+		
+		//<input type="button" name="checkall" id="check_revsern" value="反选" />
+		document.getElementById("check_revsern").onclick = function(){
+			for(var i=0;i<itemsElements.length;i++){
+				var itemsElement = itemsElements[i];
+				
+				if(itemsElement.checked){
+					itemsElement.checked = null;
+				}else{
+					itemsElement.checked = "checked";
+				}
+			}
+		}
+		
+		//<input type="checkbox" name="checkItems" id="checkItems" value="全选/全不选"/>全选/全不选
+		document.getElementById("checkItems").onclick = function(){
+			if(this.checked){
+				//全选
+				checkall();
+			}else{
+				//全不选
+				checkallNo();
+			}
+		}
+		
+		/*
+		 * 编写代码时，总是想一次性将代码做到最优：
+		 * 	* 即使是三行代码，多日后，也是需要维护的
+		 * 	* 代码实现上：
+		 * 		* 完成功能，目标
+		 * 		* 做优化
+		 */
+			
+  </script>
+</html>

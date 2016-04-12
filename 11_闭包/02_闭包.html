@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_闭包.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  
+  <script type="text/javascript">
+  					var a = "a";
+					var n;
+					
+					function fn(){
+						var b = "b";
+						
+						alert(a);		//output	a
+						
+						alert(b);		//output	b
+						
+						n = function(){
+							var c = "c";
+							
+							alert(a);		//output	a
+							
+							alert(b);		//output	b
+							
+							alert(c);		//output	c
+						}
+						
+						return n();
+					}
+					
+					fn();
+					n();
+  </script>
+</html>

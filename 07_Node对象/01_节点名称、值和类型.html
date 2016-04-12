@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>01_节点名称、值和类型.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <input type="text" id="username" name="username" value="username">
+	<p>
+		明天上课
+	</p>
+  </body>
+  <script type="text/javascript">
+  					//获取元素节点的nodeName、nodeType和nodeValue
+  					
+//					var input = document.getElementById("username");
+//					
+//					alert(input.nodeName);		//output	input
+//					alert(input.nodeType);		//1
+//					alert(input.nodeValue);		//null
+					
+					//获取文本节点的nodeName、nodeType和nodeValue
+//					var pElement = document.getElementsByTagName("p")[0];
+//					
+//					var text = pElement.childNodes[0];
+//					
+//					alert(text.nodeName);		//output	#text
+//					alert(text.nodeType);		//output	3
+//					alert(text.nodeValue);		//output	明天上课
+					
+					//获取属性节点的nodeName、nodeType和nodeValue
+					var input = document.getElementById("username");
+					
+					var attr = input.getAttributeNode("name");
+					
+					alert(attr.nodeName);		//output	name
+					alert(attr.nodeType);		//output	2
+					alert(attr.nodeValue);		//output	username
+					
+					/*
+					 * nodeName、nodeType和nodeValue
+					 * 	* 获取HTML页面的标签，nodeName知道是什么标签
+					 * 	* 利用nodeType的值，判断获取的是什么节点
+					 * 	* 获取文本节点的文本内容，利用nodeValue
+					 */
+  </script>
+</html>

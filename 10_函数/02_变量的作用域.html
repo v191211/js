@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_变量的作用域.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  
+  <script type="text/javascript">
+  					/*
+  					 * * 变量a是全局变量，环境中任意位置都可以访问
+  					 * * 变量b是局部变量，只能在函数fn()中访问
+  					 * * 在javascript中，只存在全局变量和局部变量
+  					 * * 在javascript中，只存在全局域和函数域
+  					 */
+//					var a = "a";
+//					
+//					function fn(){
+//						var b = "b";
+//						
+//						alert(a);		//output	a
+//						
+//						alert(b);		//output	b
+//					}
+//					
+//					fn();
+//					alert(a);			//output	a
+//					alert(b);			//output	undefind
+					
+					/*
+					 * 在javascript中，不使用修饰符"var"时：
+					 * 	* 环境会自动将变量的定义为全局变量
+					 * 	* 并不报错
+					 */
+//					var a = "a";
+//					
+//					function fn(){
+//						b = "b";
+//						
+//						alert(a);		//output	a
+//						
+//						alert(b);		//output	b
+//					}
+//					
+//					fn();
+//					alert(a);			//output	a
+//					alert(b);			//output	b
+					
+					/*
+					 * 全局变量与局部变量同名时：
+					 * * 定义了全局变量a，并初始化为"a"
+					 * * 定义了函数fn()，有没有执行函数中的代码？没有
+					 * 		* 局部变量a，有没有被定义？被定义，但是没有初始化
+					 * * 调用函数fn()时
+					 * 		* 第一个打印结果，打印的是局部变量a。但是因为局部变量a没有初始化，所以值是undefind
+					 * 		* 第二个打印结果，打印的是局部变量a。局部变量a初始化了，所以值是b
+					 */
+					var a = "a";
+					
+					function fn(){
+						
+						alert(a);		//output	undefind
+						
+						var a = "b";
+						
+						alert(a);		//output	b
+					}
+					
+					fn();
+					alert(a);			//output	a
+					
+  </script>
+</html>

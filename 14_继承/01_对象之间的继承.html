@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>01_对象之间的继承.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+  					//javascript中，不支持继承的语法
+					function A(){
+						this.name = "a";
+						this.sayA = function(){
+							alert("a");
+						}
+					}
+					
+					function B(){
+						this.value = "b";
+						this.sayB = function(){
+							alert("b");
+						}
+					}
+					
+					B.prototype = new A();
+					
+					var b = new B();
+					
+					alert(b.name);			//output	a
+					b.sayA();				//output	a
+					
+					
+					
+  </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_普通对象的继承.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+
+				/*
+				 * 这种方法又称为浅复制
+				 */
+
+				//该函数接受一个对象并返回它的副本
+				function extendCopy(p){
+					var z = {};	//定义一个空的对象z
+					for(var i in p){	//var i =0 ; i < p.length ; i++
+						z[i] = p[i];	//都当做数组处理的话，可以理解
+					}
+					//uber属性：将p作为z的父级，将z指向p的原型. 这个属性在浅复制中显得非常重要!
+					z.uber = p;
+					return z;
+				}
+				//定义对象a，但是对象a不是函数对象	
+				var a = {
+					name : "a"
+				}
+				//定义对象b，但是对象b不是函数对象	
+				var b = extendCopy(a);
+				b.toStr = function(){return this.name;};
+					
+				alert(b.toStr());		//output	a
+
+  </script>
+</html>

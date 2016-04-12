@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!-- 引入jQuery文件 -->
+    <script src="../../js/jquery-1.10.2.js"></script>
+	<!-- 引入自定义插件文件 -->
+	<script src="test.js"></script>
+  </head>
+  <script type="text/javascript">
+  	$(function(){
+		$("input").click(function(){
+			var a = prompt("请输入一个数值");
+			var b = prompt("请再输入一个数值");
+			var c = $.minValue(a,b);
+			var d = jQuery.maxValue(a,b);
+			alert("你输入的最大值是："+d+"\n你输入的最小值是："+c);
+		});
+	})
+	
+  </script>
+  <body>
+    <input type="button" value="jQuery插件扩展测试">
+  </body>
+</html>

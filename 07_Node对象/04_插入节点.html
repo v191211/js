@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>04_插入节点.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <ul id="city">
+    	<li id="bj" name="beijing">北京</li>
+		<li id="sh" name="shanghai">上海</li>
+		<li id="cq" name="chongqing">重庆</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+  				//创建<li id="tj" name="tianjin">天津</li>，添加到重庆标签的前面
+//					//1 创建<li id="tj" name="tianjin">天津</li>
+//						//1 创建元素节点<li></li>
+//						var liElement = document.createElement("li");
+//						
+//						//2 创建文本节点"天津"
+//						var text = document.createTextNode("天津");
+//						
+//						//3 将文本节点当作子节点，添加到li标签下
+//						liElement.appendChild(text);
+//						
+//						//4 不能创建属性节点?Element对象
+//						liElement.setAttribute("id","tj");
+//						liElement.setAttribute("name","tianjin");
+//					
+//					//2 获取重庆节点
+//						var cqElement = document.getElementById("cq");
+//					
+//					//不能使用parent.appendChild(child)
+//					
+//					//3 获取重庆的父节点
+//						var parent = cqElement.parentNode;
+//					
+//					//4 parent.insertBefore(newChild,oldChild)
+//						parent.insertBefore(liElement,cqElement);
+				
+				//创建<li id="tj" name="tianjin">天津</li>，添加到上海标签的后面
+					//1 创建<li id="tj" name="tianjin">天津</li>
+						//1 创建元素节点<li></li>
+						var liElement = document.createElement("li");
+						
+						//2 创建文本节点"天津"
+						var text = document.createTextNode("天津");
+						
+						//3 将文本节点当作子节点，添加到li标签下
+						liElement.appendChild(text);
+						
+						//4 不能创建属性节点?Element对象
+						liElement.setAttribute("id","tj");
+						liElement.setAttribute("name","tianjin");
+					
+					//2 获取上海节点
+						var shElement = document.getElementById("sh");
+						
+					//3 获取上海的父节点
+						var parent = shElement.parentNode;
+					
+					//4 insertAfter()没有该方法，只能使用insertBefore()
+						var cqElement = shElement.nextSibling;
+						
+						parent.insertBefore(liElement,cqElement);
+  </script>
+</html>

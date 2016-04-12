@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>03_扩展内建对象.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+  					//为原型 Array对象增加一个判断的函数
+					Array.prototype.inArray = function(color){
+						//this指代Array对象
+						for(var i = 0, len = this.length; i < len; i++){
+							if(this[i] === color){
+								return true;
+							}
+						}
+						return false;
+					}
+						
+					//定义一个Array对象
+					var a = ["red", "green", "blue"];
+						
+					//测试
+					alert(a.inArray("red"));		//true
+					alert(a.inArray("yellow"));		//false
+
+					/*
+					 * * javascript的内建对象，提供很多属性和方法
+					 * * 不能满足所有的需求，所以自定义属性或方法
+					 * * 通过原型，将自定义的方法，添加到了内建对象上
+					 * * 可以调用自定义方法，像内建对象原生方法一样
+					 */
+					
+  </script>
+</html>

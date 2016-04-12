@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>04_FORM对象.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <form id="form1" action="test1.html" method="post">
+    	<input type="text" id="username" name="username" value="username">
+		<input type="text" id="password" name="password" value="password">
+		<input type="button" id="login" value="登录">
+    </form>
+	<form id="form2" name="form2" action="test2.html" method="post">
+    	<input type="text" id="username" name="username" value="username">
+		<input type="text" id="password" name="password" value="password">
+		<input type="button" id="login" value="登录">
+    </form>
+  </body>
+
+  <script type="text/javascript">
+  					//获取form1的action属性值
+					//访问表单的第一种：document.forms[索引值]
+//					//1 获取form1
+//					var form1 = window.document.forms[0];
+//					
+//					//2 获取对应的action属性
+//					alert(form1.action);
+					
+					//获取form2的action属性值
+					//访问表单的第二种：document.表单名
+					var form2 = document.form2;
+					
+					alert(form2.action);		
+  </script>
+</html>

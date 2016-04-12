@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>02_只继承于原型.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+  </body>
+  <script type="text/javascript">
+					
+					/*
+					 * 原型其实也是对象,下面注释的这种方式,A的原型会被后面B的原型覆盖,所以不可行.
+					 * 下面没有被注释掉的,先引用,在使用=号给原型添加元素的方式可行
+					 */
+
+//  					function A(){
+//						this.name = "a";
+//						this.sayA = function(){
+//							alert("a");
+//						}
+//					}
+//					
+//					function B(){
+//						this.value = "b";
+//						this.sayB = function(){
+//							alert("b");
+//						}
+//					}
+//					
+//					B.prototype = A.prototype;
+//					
+//					var b = new B();
+//					
+//					alert(b.name);			//output	undefind
+					
+//					function A(){}
+//					
+//					A.prototype = {
+//						name : "a",
+//						sayA : function(){
+//							alert("a");
+//						}
+//					}
+//					
+//					//定义一个空的函数对象B
+//					function B(){}
+//					
+//					//将函数对象A的原型内容，赋值给函数对象B的原型
+//					B.prototype = A.prototype;
+//					
+//					//向函数对象B的原型上增加属性和方法
+//					B.prototype = {
+//						value : "b",
+//						sayB : function(){
+//							alert("b");
+//						}
+//					}
+//					
+//					//将函数对象A的原型内容，赋值给函数对象B的原型
+////					B.prototype = A.prototype;
+//					
+//					var b = new B();
+//					
+//					alert(b.name);		//output	a
+//					alert(b.value);		//output	b
+					
+					
+					function A(){}
+					
+					A.prototype = {
+						name : "a",
+						sayA : function(){
+							alert("a");
+						}
+					}
+					
+					//定义一个空的函数对象B
+					function B(){}
+					
+					//将函数对象A的原型内容，赋值给函数对象B的原型
+					B.prototype = A.prototype;
+					
+					B.prototype.value = "b";
+					
+					var b = new B();
+					
+					alert(b.name);		//output	a
+					alert(b.value);		//output	b
+					
+					
+					
+  </script>
+</html>

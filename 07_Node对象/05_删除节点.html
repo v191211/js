@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>05_删除节点.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <ul id="city">
+    	<li id="bj" name="beijing">北京</li>
+		<li id="sh" name="shanghai">上海</li>
+		<li id="cq" name="chongqing">重庆</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+  			//删除北京节点，parent.removeChild(child)
+				//1 获取北京节点
+				var bjElement = document.getElementById("bj");
+				
+				//2 获取北京节点的父节点
+				var parent = bjElement.parentNode;
+				
+				//3 删除
+				parent.removeChild(bjElement);
+			
+			
+  </script>
+</html>

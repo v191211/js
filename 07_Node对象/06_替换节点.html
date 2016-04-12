@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>06_替换节点.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  </head>
+  
+  <body>
+    <ul id="city">
+    	<li id="bj" name="beijing">北京</li>
+		<li id="sh" name="shanghai">上海</li>
+		<li id="cq" name="chongqing">重庆</li>
+    </ul>
+	<ul id="game">
+    	<li id="fk" name="fankong">反恐<p>精英</p></li>
+		<li id="ms" name="moshou">魔兽</li>
+		<li id="xj" name="xingji">星际</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+  					//当点击北京节点时，北京节点被反恐节点替换
+//					document.getElementById("bj").onclick = function(){
+//						//1 获取北京节点
+//						var bjElement = document.getElementById("bj");
+//						
+//						//2 获取反恐节点
+//						var fkElement = document.getElementById("fk");
+//						
+//						//3 获取北京节点的父节点
+//						var parent = bjElement.parentNode;
+//						
+//						//4 替换
+//						parent.replaceChild(fkElement,bjElement);
+//						
+//					}
+					
+					document.getElementById("bj").onclick = function(){
+						//1 获取北京节点 (使用this,这步就可以省略了)
+//						var bjElement = document.getElementById("bj");
+						
+						//2 获取反恐节点
+						var fkElement = document.getElementById("fk");
+						
+						//3 获取北京节点的父节点
+						var parent = this.parentNode;
+						
+						//4 替换
+						parent.replaceChild(fkElement,this);
+						
+					}
+					
+					//this的用法：必须指代HTML页面中的具体元素
+					
+  </script>
+</html>
